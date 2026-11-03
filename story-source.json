@@ -1,0 +1,989 @@
+[
+  {
+    "page": 1,
+    "pdf_page": 5,
+    "quadrant": "BR",
+    "rotated": false,
+    "blocks": [
+      {
+        "bbox": [
+          138.6334228515625,
+          20.88433837890625,
+          336.2999267578125,
+          71.34033203125
+        ],
+        "text": "Where are you?",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          179.02288818359375,
+          52.04833984375,
+          295.9105224609375,
+          102.50433349609375
+        ],
+        "text": "U kwihi?",
+        "lang": "ts"
+      },
+      {
+        "bbox": [
+          67.50396728515625,
+          409.45660400390625,
+          228.98809814453125,
+          486.3966064453125
+        ],
+        "text": "Ann Walton Rico Tsakani Nkwe",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          33.886688232421875,
+          502.8924560546875,
+          329.2911376953125,
+          517.88037109375
+        ],
+        "text": "World Read Aloud Day 2019 • Siku ra Misava ra ku Hlayela",
+        "lang": "en"
+      }
+    ],
+    "art_bbox": [
+      3,
+      99,
+      355.0,
+      499
+    ]
+  },
+  {
+    "page": 2,
+    "pdf_page": 6,
+    "quadrant": "BL",
+    "rotated": false,
+    "blocks": [
+      {
+        "bbox": [
+          33.836997985839844,
+          32.47613525390625,
+          312.995361328125,
+          76.7801513671875
+        ],
+        "text": "“We’re going shopping! We’re going shopping!” Afrika jumped up and down in front of Dintle. His mother, Mme wa Afrika, smiled at him, and Dintle clapped her hands.",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          33.836997985839844,
+          90.07611083984375,
+          307.913330078125,
+          119.9801025390625
+        ],
+        "text": "“Yes,” said Mme wa Afrika, “so put your shoes on. We have to hurry. We still have to walk to the bus stop.”",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          33.836997985839844,
+          147.6761474609375,
+          306.7529602050781,
+          206.380126953125
+        ],
+        "text": "“Hi ya eku xaveni eswitolo! Hi ya eku xaveni eswitolo!” Afrika a tlulatlula a ya ehenhla ni le hansi emahlweni ka Dintle. Mhani wa yena, Mme wa Afrika, a n’wayitela, kutani Dintle a phokotela mavoko.",
+        "lang": "ts"
+      },
+      {
+        "bbox": [
+          33.836997985839844,
+          219.67608642578125,
+          179.31182861328125,
+          278.38006591796875
+        ],
+        "text": "“Ina,” ku vula Mme wa Afrika, “ambala tintanghu ta wena. Hi fanela ku hatlisa. Ha ha fanela ku famba hi ya exitichini xa bazi.”",
+        "lang": "ts"
+      }
+    ],
+    "art_bbox": [
+      19.31316375732422,
+      118.7535400390625,
+      355.0,
+      514.1715087890625
+    ]
+  },
+  {
+    "page": 3,
+    "pdf_page": 11,
+    "quadrant": "BR",
+    "rotated": false,
+    "blocks": [
+      {
+        "bbox": [
+          35.2952880859375,
+          32.47613525390625,
+          167.9974365234375,
+          249.580078125
+        ],
+        "text": "At the bus stop, there were a lot of people waiting for the bus. And when they all got onto the bus, everyone was a bit squashed. Mme wa Afrika held Dintle on her lap. Then a lady sat down next to her. Afrika sat on the other side of his mother, squashed against the window. But he didn’t mind at all because it meant that he could look out of the window.",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          35.2952880859375,
+          262.87603759765625,
+          209.439208984375,
+          278.3800048828125
+        ],
+        "text": "Finally the driver called out, “Last stop!”",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          35.2952880859375,
+          291.67608642578125,
+          301.0654296875,
+          307.1800537109375
+        ],
+        "text": "“Come on, Afrika. This is where we get off,” said his mother.",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          35.2952880859375,
+          334.87603759765625,
+          325.58648681640625,
+          436.77996826171875
+        ],
+        "text": "Exitichini xa bazi, a ku ri na vanhu votala lava a va yimele bazi. Loko hinkwavo va nghena endzeni ka bazi, un’wana na un’wana a manyiwa. Mme wa Afrika a xinge Dintle. Kutani wansati un’wana a tshama laha tlhelo ka yena. Kasi Afrika yena a tshame hala tlhelo lerin’wana ra mhani wa yena, a a manyeke kusuhi ni fesitere. Kambe hinkwaswo leswi a swi nga n’wi karhati hikuva a swi vula leswaku u ta kota ku vona ehandle hi fesitere.",
+        "lang": "ts"
+      },
+      {
+        "bbox": [
+          35.2952880859375,
+          450.075927734375,
+          296.7396240234375,
+          465.5799560546875
+        ],
+        "text": "Ekuheteleleni muchayeri a huwelela a ku, “Xitichi xo hetelela!”",
+        "lang": "ts"
+      },
+      {
+        "bbox": [
+          35.2952880859375,
+          478.8759765625,
+          305.10498046875,
+          508.780029296875
+        ],
+        "text": "“Tana Afrika, hatlisa. Laha hi kona laha hi xikaka kona,” ku vula mhani wa yena.",
+        "lang": "ts"
+      }
+    ],
+    "art_bbox": [
+      148.785400390625,
+      22.054443359375,
+      332.6798095703125,
+      223.33233642578125
+    ]
+  },
+  {
+    "page": 4,
+    "pdf_page": 12,
+    "quadrant": "BL",
+    "rotated": false,
+    "blocks": [],
+    "art_bbox": [
+      3,
+      3,
+      355.0,
+      510.1041259765625
+    ]
+  },
+  {
+    "page": 5,
+    "pdf_page": 12,
+    "quadrant": "TL",
+    "rotated": true,
+    "blocks": [
+      {
+        "bbox": [
+          31.916595458984375,
+          40.4283447265625,
+          310.7606430053711,
+          70.33236694335938
+        ],
+        "text": "After they got off the bus, Mme wa Afrika tied Dintle on her back. “Stay close to me,” she told Afrika. “This is a very busy place.”",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          31.916595458984375,
+          83.62835693359375,
+          323.20459747314453,
+          127.93240356445312
+        ],
+        "text": "It was busy. There were people carrying bags and pushing trolleys full of shopping. There was also a lady with her shopping balanced on her head.",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          31.9166259765625,
+          141.2283935546875,
+          246.77664184570312,
+          156.73239135742188
+        ],
+        "text": "“Can you do that, Mama?” Afrika asked his mother.",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          31.9166259765625,
+          170.02838134765625,
+          177.52468872070312,
+          185.53237915039062
+        ],
+        "text": "“Do what?” asked Mme wa Afrika.",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          31.9166259765625,
+          198.828369140625,
+          280.85668182373047,
+          214.33236694335938
+        ],
+        "text": "“Carry things on the top of your head like that,” said Afrika.",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          31.9166259765625,
+          227.62835693359375,
+          209.15667724609375,
+          243.13235473632812
+        ],
+        "text": "“Of course I can. It’s easy,” said his mother.",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          31.9166259765625,
+          270.828369140625,
+          331.06111907958984,
+          315.1324157714844
+        ],
+        "text": "Endzhaku ka loko va xikile ebazini, Mme wa Afrika a bebula Dintle enhlaneni wa yena. “Famba hilaha kushi ka mina,” a byela Afrika. “Leyi i ndhawu ya nkitsinkitsi.”",
+        "lang": "ts"
+      },
+      {
+        "bbox": [
+          31.9166259765625,
+          328.4283905029297,
+          333.75987243652344,
+          372.73243713378906
+        ],
+        "text": "A ku ri ni nkitsinkitsi. Vanhu a va rhwele minkwama van’wana va susumeta titiroli ti tele timpahla ta leswi va nga swi xava. Nakambe a ku ri na wansati loyi a dzenengele leswi a nga swi xava enhlokweni.",
+        "lang": "ts"
+      },
+      {
+        "bbox": [
+          31.9166259765625,
+          386.02842712402344,
+          309.6698684692383,
+          415.9324493408203
+        ],
+        "text": "“Xana wena wa swi kota ku endla leswiya, Mama?” Afrika a vutisa mhani wakwe.",
+        "lang": "ts"
+      },
+      {
+        "bbox": [
+          31.9166259765625,
+          429.2284393310547,
+          211.3646240234375,
+          444.73243713378906
+        ],
+        "text": "“Ku endla yini?” ku vutisa Mme wa Afrika.",
+        "lang": "ts"
+      },
+      {
+        "bbox": [
+          31.9166259765625,
+          458.0284881591797,
+          279.57142639160156,
+          487.9325180053711
+        ],
+        "text": "“Ku rhwala mpahla enhlokweni ya wena hi ndlela liya,” ku hlamula Afrika.",
+        "lang": "ts"
+      },
+      {
+        "bbox": [
+          31.9166259765625,
+          501.2285614013672,
+          264.1167297363281,
+          516.7325668334961
+        ],
+        "text": "“Ina ndza swi kota. Swa olova,” ku vula mhani wa yena.",
+        "lang": "ts"
+      }
+    ],
+    "art_bbox": null
+  },
+  {
+    "page": 6,
+    "pdf_page": 11,
+    "quadrant": "TR",
+    "rotated": true,
+    "blocks": [
+      {
+        "bbox": [
+          40.777587890625,
+          53.7236328125,
+          311.3057556152344,
+          83.62765502929688
+        ],
+        "text": "Afrika watched the lady walk away until she disappeared into the crowds of people standing in between the market stalls.",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          40.777587890625,
+          96.92364501953125,
+          306.7587890625,
+          155.62771606445312
+        ],
+        "text": "“I bet I can carry things on my head too!” Afrika said to himself. He saw an empty plastic cooldrink bottle on the ground. He picked it up and put it on his head, but he had to hold onto it because it kept falling off.",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          40.777587890625,
+          168.9237060546875,
+          304.286865234375,
+          227.62777709960938
+        ],
+        "text": "“Eish!” said a girl right next to him. “I’ll show you how to do that!” She took the cooldrink bottle, put it on her head, and with her nose in the air, she walked around Afrika like a proud princess.",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          40.777587890625,
+          240.92364501953125,
+          286.8568115234375,
+          256.4276428222656
+        ],
+        "text": "“Yoh!” said Afrika, very impressed. “What’s your name?”",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          40.777587890625,
+          269.7236328125,
+          137.917724609375,
+          285.2276306152344
+        ],
+        "text": "“I’m Asanda,” she said.",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          40.777587890625,
+          298.52362060546875,
+          287.26373291015625,
+          314.0276184082031
+        ],
+        "text": "“I’m Afrika. How did you learn to do that?” Afrika asked.",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          40.777587890625,
+          341.72361755371094,
+          299.0908203125,
+          386.0276641845703
+        ],
+        "text": "Afrika a langutisa wansati loyi ku kondza loko a nyamalala exikarhi ka mitshungu ya vanhu lava a va yime exikarhi ka switolo swa makete.",
+        "lang": "ts"
+      },
+      {
+        "bbox": [
+          40.777587890625,
+          399.3236541748047,
+          308.53485107421875,
+          472.4277572631836
+        ],
+        "text": "“Ndza beja na mina ndzi nga swi kota ku dzenengela!” Afrika a ehleketa a ri yexe. Kutani a vona bodlhela ra pulastiki ra kholodirinki leri nga riki na nchumu ri ri ehansi. A ri rholela kutani a ri veka ehenhla ka nhloko, kambe a boheka ku ri khoma hikuva a ri tshamela ku wa.",
+        "lang": "ts"
+      }
+    ],
+    "art_bbox": null
+  },
+  {
+    "page": 7,
+    "pdf_page": 6,
+    "quadrant": "TL",
+    "rotated": true,
+    "blocks": [
+      {
+        "bbox": [
+          33.77960205078125,
+          53.7236328125,
+          329.3516387939453,
+          126.82772827148438
+        ],
+        "text": "“Eish!” ku vula nhwanyana loyi a ri kwala tlhelo ka yena. “Ndzi ta ku komba leswaku swi endlisiwa ku yini!” A teka bodlhela ra kholodirinki, a ri dzenengela enhlokweni, a tlakuse nhompfu ya yena emoyeni, a rhendzeleka laha Afrika a yime kona ku fana ni n’wana wa hosi loyi wa manyunyu.",
+        "lang": "ts"
+      },
+      {
+        "bbox": [
+          33.77960205078125,
+          140.12371826171875,
+          327.1580276489258,
+          155.62771606445312
+        ],
+        "text": "“Yooo!” ku vula Afrika, hi ku nyanyuka. “Hi wena mani vito ra wena?”",
+        "lang": "ts"
+      },
+      {
+        "bbox": [
+          33.77960205078125,
+          168.9237060546875,
+          156.34767150878906,
+          184.42770385742188
+        ],
+        "text": "“Hi mina Asanda,” a hlamula.",
+        "lang": "ts"
+      },
+      {
+        "bbox": [
+          33.77960205078125,
+          197.72369384765625,
+          295.3544692993164,
+          227.62771606445312
+        ],
+        "text": "“Mina ndzi Afrika. U dyondzise ku yini ku endla sweswo?” ku vutisa Afrika.",
+        "lang": "ts"
+      }
+    ],
+    "art_bbox": [
+      30.82672119140625,
+      206.83151245117188,
+      338.51788330078125,
+      529.8157958984375
+    ]
+  },
+  {
+    "page": 8,
+    "pdf_page": 5,
+    "quadrant": "TR",
+    "rotated": true,
+    "blocks": [
+      {
+        "bbox": [
+          34.834716796875,
+          60.59979248046875,
+          207.3851318359375,
+          162.50387573242188
+        ],
+        "text": "“I first tried walking with books on my head,” she said. “You have to keep your head still when you walk.” She put the cooldrink bottle back on top of Afrika’s head. “Walk slowly now, with your nose in the air, like a prince.”",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          34.834716796875,
+          175.79974365234375,
+          162.405517578125,
+          248.90377807617188
+        ],
+        "text": "Afrika walked around Asanda very slowly, keeping his head still with his nose in the air. And the bottle stayed on!",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          34.834716796875,
+          262.19976806640625,
+          174.8629150390625,
+          378.50392150878906
+        ],
+        "text": "“Look, Ma! Look at me …” said Afrika, but he couldn’t see his mother! Someone bumped into Afrika and the cooldrink bottle fell off his head. But he had forgotten about the bottle – he wanted to know where his mother was!",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          34.834716796875,
+          391.79991149902344,
+          178.66680908203125,
+          450.50379943847656
+        ],
+        "text": "“Where are you, Mama?” he called. There was no answer. “Mama!” he called a little louder. Still no answer.",
+        "lang": "en"
+      }
+    ],
+    "art_bbox": [
+      179.29437255859375,
+      65.091552734375,
+      355.0,
+      406.500732421875
+    ]
+  },
+  {
+    "page": 9,
+    "pdf_page": 5,
+    "quadrant": "TL",
+    "rotated": true,
+    "blocks": [
+      {
+        "bbox": [
+          146.04269409179688,
+          60.43182373046875,
+          335.9079284667969,
+          176.73599243164062
+        ],
+        "text": "“Ndzi rhange ndzi ringeta hi ku famba ndzi rhwale tibuku enhlokweni,” a hlamula. “U fanele u nga ninginisi nhloko ya wena loko u ri karhi u famba.” Kutani a vuyisela bodlhela ra kholidirinki ehenhla ka nhloko ya Afrika. “Sweswi famba khwatsi, yimisela nhompfu ya wena emoyeni, wonge i n’wana wa hosi.”",
+        "lang": "ts"
+      },
+      {
+        "bbox": [
+          182.04269409179688,
+          190.031982421875,
+          331.4787139892578,
+          248.73605346679688
+        ],
+        "text": "Afrika a rhendzeleka hi Asanda hi ku nonoka, a nga ninginisi nhloko ya yena na nhompfu yi ri emoyeni. Kutani bodlhela ri tshamiseka!",
+        "lang": "ts"
+      },
+      {
+        "bbox": [
+          170.03070068359375,
+          262.03204345703125,
+          334.97911071777344,
+          378.33619689941406
+        ],
+        "text": "“Languta Ma! Ndzi langute …” ku vula Afrika, kambe a nga n’wi voni mhani wa yena! Hiloko munhu un’wana a tlumbana na Afrika kutani bodlhela ra kholodirinki ri wa enhlokweni. Kambe a rivele hi bodlhela – a a lava ku tiva lomu mhani wa yena a nga kona!",
+        "lang": "ts"
+      },
+      {
+        "bbox": [
+          146.01870727539062,
+          391.63218688964844,
+          323.83592987060547,
+          450.33619689941406
+        ],
+        "text": "“Mi kwihi, Mama?” a huwelela. A nga kumi nhlamulo. “Mama!” a huwelelela ehenhlanyana. Na sweswi a nga kumi nhlamulo.",
+        "lang": "ts"
+      }
+    ],
+    "art_bbox": [
+      3,
+      65.091552734375,
+      228.42816162109375,
+      406.5007781982422
+    ]
+  },
+  {
+    "page": 10,
+    "pdf_page": 6,
+    "quadrant": "TR",
+    "rotated": true,
+    "blocks": [
+      {
+        "bbox": [
+          170.4796142578125,
+          28.18768310546875,
+          334.9047546386719,
+          86.89175415039062
+        ],
+        "text": "“My mother is lost!” said Afrika to Asanda. “We were on our way to the book stall on the corner, but now she’s gone!”",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          36.44091796875,
+          100.1827392578125,
+          337.20892333984375,
+          144.48678588867188
+        ],
+        "text": "“I’m going to the book stall too! I’m going to buy a storybook with the money I’ve saved. Maybe your mama is at the book stall. Let’s go find her!” suggested Asanda.",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          36.44091796875,
+          157.78277587890625,
+          332.8529357910156,
+          202.08688354492188
+        ],
+        "text": "Together Asanda and Afrika walked through the crowds of people. All of a sudden Afrika heard his name! “Afrika! Afrika! Where are you?”",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          36.44091796875,
+          215.38287353515625,
+          341.0141296386719,
+          259.6867370605469
+        ],
+        "text": "“That’s my mother’s voice,” said Afrika. “Shame, she is lost! I can hear she’s upset. It sounds as though she’s near the book stall. Come, let’s run, Asanda!”",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          36.44091796875,
+          287.38287353515625,
+          338.2735595703125,
+          317.2868957519531
+        ],
+        "text": "“Mhani wa mina u lahlekile!” Afrika a byela Asanda. “A hi ri endleleni yo ya exitolo xa tibuku le khonweni, kambe sweswi u fambile!”",
+        "lang": "ts"
+      },
+      {
+        "bbox": [
+          36.44091796875,
+          330.58287048339844,
+          333.5516357421875,
+          389.28675842285156
+        ],
+        "text": "“Na mina ndzi ya exitolo xa tibuku! Ndzi ya xava buku ya mitsheketo hi mali leyi ndzi nga tihlayisela yona. Kumbexana mhani wa wena u nghene exitolo xa tibuku. A hi fambi hi ya n’wi lava!” ku ringanyeta Asanda.",
+        "lang": "ts"
+      },
+      {
+        "bbox": [
+          36.44091796875,
+          402.58287048339844,
+          333.40399169921875,
+          446.88673400878906
+        ],
+        "text": "Va ri swin’we Asanda na Afrika va famba va tsemakanya mitshungu ya vanhu. Hi nkarhi walowo Afrika a twa vito ra yena! “Afrika! Afrika! U kwihi?”",
+        "lang": "ts"
+      },
+      {
+        "bbox": [
+          36.44091796875,
+          460.1827850341797,
+          328.120361328125,
+          504.4868392944336
+        ],
+        "text": "“I rito ra mhani wa mina rero,” ku vula Afrika. “Mbuya, u lahlekile! Ndza swi twa leswaku u hlundzukile. U twala a ri ekusuhi na xitolo xa tibuku. Tana, a hi tsutsumi, Asanda!”",
+        "lang": "ts"
+      }
+    ],
+    "art_bbox": [
+      36.44091796875,
+      3.9112548828125,
+      170.4849853515625,
+      99.08810424804688
+    ]
+  },
+  {
+    "page": 11,
+    "pdf_page": 11,
+    "quadrant": "TL",
+    "rotated": true,
+    "blocks": [
+      {
+        "bbox": [
+          35.3870849609375,
+          53.7236328125,
+          314.4602813720703,
+          98.02767944335938
+        ],
+        "text": "Together the children ran to the book stall, and there, right in front of it, were Mme wa Afrika and Dintle. Mama opened her arms and Afrika ran straight into them.",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          35.3870849609375,
+          111.32366943359375,
+          319.6959991455078,
+          141.22769165039062
+        ],
+        "text": "“Hello, Mama, are you alright?” asked Afrika. “Don’t worry now, we’ve found you and Dintle. You aren’t lost anymore.”",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          35.3870849609375,
+          154.523681640625,
+          316.0166549682617,
+          184.42770385742188
+        ],
+        "text": "Dintle was very happy to see her big brother. Afrika bent down and gave her a hug.",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          35.3870849609375,
+          212.12371826171875,
+          317.24910736083984,
+          270.8277893066406
+        ],
+        "text": "Va ri swin’we vana va tsutsuma va ya exitolo xa tibuku, kona kwale, kwala mahlweni ka xona, a ku ri na Mme wa Afrika na Dintle. Mama a pfula mavoko kutani Afrika a nghena eka wona hi ku kongoma.",
+        "lang": "ts"
+      },
+      {
+        "bbox": [
+          35.3870849609375,
+          284.123779296875,
+          324.45755767822266,
+          314.0278015136719
+        ],
+        "text": "“Xewani, Mama, xana u tsakile?” ku vutisa Afrika. “U nga ha vileli sweswi, mina na Dintle hi ku kumile. A wa ha lahlekanga.”",
+        "lang": "ts"
+      },
+      {
+        "bbox": [
+          35.3870849609375,
+          327.3237762451172,
+          288.4323043823242,
+          357.22779846191406
+        ],
+        "text": "Dintle a tsakile ku vona buti wa yena. Afrika a korhama a n’wi vukarha.",
+        "lang": "ts"
+      }
+    ],
+    "art_bbox": [
+      95.74166870117188,
+      372.5467224121094,
+      269.54966735839844,
+      516.978759765625
+    ]
+  },
+  {
+    "page": 12,
+    "pdf_page": 12,
+    "quadrant": "TR",
+    "rotated": true,
+    "blocks": [
+      {
+        "bbox": [
+          106.8599853515625,
+          301.3818359375,
+          143.05621337890625,
+          318.5386047363281
+        ],
+        "text": "WOOD PROJECTS",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          107.562255859375,
+          310.92425537109375,
+          138.96685791015625,
+          331.9847412109375
+        ],
+        "text": "TIPHUROJEKE TA VUVATLI",
+        "lang": "ts"
+      }
+    ],
+    "art_bbox": [
+      3,
+      3,
+      355.0,
+      534.0
+    ]
+  },
+  {
+    "page": 13,
+    "pdf_page": 12,
+    "quadrant": "BR",
+    "rotated": false,
+    "blocks": [
+      {
+        "bbox": [
+          35.877288818359375,
+          50.7515869140625,
+          316.15545654296875,
+          95.0555419921875
+        ],
+        "text": "“Mama, this is Asanda, my new friend,” said Afrika. “She taught me how to balance a cooldrink bottle on my head. She wants to buy a book.”",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          35.877288818359375,
+          108.3515625,
+          329.813720703125,
+          181.45550537109375
+        ],
+        "text": "“Hello, Asanda, I am glad to meet you,” said Mme wa Afrika smiling. “Now, let’s look at the books and see what we can find! Afrika, remember you wanted to learn how to make a bird house.” They all spent some time looking at the books and Mama found one which showed you how to make different things from wood.",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          35.877288818359375,
+          209.15155029296875,
+          329.44793701171875,
+          253.45550537109375
+        ],
+        "text": "“Mama, loyi i Asanda, munghana wa mina lontshwa,” ku vula Afrika. “U ndzi dyondzisile ku dzenengela bodlhela ra kholodirinki enhlokweni. U lava ku xava buku.”",
+        "lang": "ts"
+      },
+      {
+        "bbox": [
+          35.877288818359375,
+          266.75152587890625,
+          327.0262451171875,
+          354.2554931640625
+        ],
+        "text": "“Xewani, Asanda, ndzi tsakile ku ku tiva,” ku vula Mme wa Afrika a ri karhi a n’wayitela. “Sweswi, a hi languteni tibuku hi vona leswaku hi nga kuma tihi! Afrika, tsundzuka leswaku a wu lava ku dyondza ku aka xisaka xa xinyenyana.” Hinkwavo va tekile nkarhi va ri karhi va languta tibuku hiloko Mama a kuma buku leyi yi dyondzisaka ku endla swilo swo hambanahambana hi timhandze.",
+        "lang": "ts"
+      }
+    ],
+    "art_bbox": [
+      224.296630859375,
+      433.8673095703125,
+      352.4249267578125,
+      533.0
+    ]
+  },
+  {
+    "page": 14,
+    "pdf_page": 11,
+    "quadrant": "BL",
+    "rotated": false,
+    "blocks": [
+      {
+        "bbox": [
+          40.486297607421875,
+          89.707275390625,
+          249.49032592773438,
+          105.21124267578125
+        ],
+        "text": "“Please, may I have it?” Afrika asked his mother.",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          40.486297607421875,
+          118.50726318359375,
+          175.3783416748047,
+          134.01123046875
+        ],
+        "text": "“Yes, if you like it,” said Mama.",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          40.486297607421875,
+          147.3072509765625,
+          302.4031066894531,
+          191.6112060546875
+        ],
+        "text": "Then it was time to go. “Look, Asanda! I’m taking my book home on my head!” Afrika said, balancing his new book on his head.",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          40.486297607421875,
+          204.9072265625,
+          286.8486328125,
+          234.8111572265625
+        ],
+        "text": "“Don’t forget to keep your nose in the air, like a prince!” laughed Asanda.",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          40.486297607421875,
+          262.5072021484375,
+          310.2306823730469,
+          292.4111328125
+        ],
+        "text": "“Ndza kombela, xana ndzi nga yi teka?” Afrika a vutisa mhani wa yena.",
+        "lang": "ts"
+      },
+      {
+        "bbox": [
+          40.486297607421875,
+          305.70721435546875,
+          277.4143371582031,
+          321.211181640625
+        ],
+        "text": "“Ina, loko kuri leswaku wa yi lava,” ku hlamula Mama.",
+        "lang": "ts"
+      },
+      {
+        "bbox": [
+          40.486297607421875,
+          334.5072021484375,
+          298.6795654296875,
+          378.8111572265625
+        ],
+        "text": "Kutani nkarhi wo famba wu fika. “Vona, Asanda! Ndzi ya ekaya ndzi dzenengele buku ya mina enhlokweni!” ku vula Afrika, a dzenengele buku ya yena leyintshwa enhlokweni.",
+        "lang": "ts"
+      },
+      {
+        "bbox": [
+          40.486297607421875,
+          392.107177734375,
+          309.6990661621094,
+          422.0111083984375
+        ],
+        "text": "“U nga rivali ku tlakusela nhompfu ya wena emoyeni, wonge i n’wana wa hosi!” Asanda a hleka.",
+        "lang": "ts"
+      }
+    ],
+    "art_bbox": null
+  },
+  {
+    "page": 15,
+    "pdf_page": 6,
+    "quadrant": "BR",
+    "rotated": false,
+    "blocks": [],
+    "art_bbox": [
+      3,
+      118.7535400390625,
+      355.0,
+      391.2041015625
+    ]
+  },
+  {
+    "page": 16,
+    "pdf_page": 5,
+    "quadrant": "BL",
+    "rotated": false,
+    "blocks": [
+      {
+        "bbox": [
+          39.72630310058594,
+          128.396240234375,
+          313.9865417480469,
+          218.96026611328125
+        ],
+        "text": "Afrika is at the market with his mother and younger sister, Dintle, when he meets a new friend, Asanda. But Afrika is so busy learning how to carry things on his head that he loses his mother! Will he be able to find her in the crowds of people at the market?",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          30.546310424804688,
+          267.3802490234375,
+          323.1423034667969,
+          376.9403076171875
+        ],
+        "text": "Afrika a ri eswitolo na mhani wakwe na ndzisana ya yena ya nhwanyana, Dintle, loko a ta hlangana na munghana wa yena lontshwa, Asanda. Kambe Afrika yena u endla nghingiriko wo dyondza ku dzenengela swilo enhlokweni ku fika laha a nga lahlekela hi manana wakwe! Xana u ta swi kota ku n’wi kuma exikarhi ka ntshungu wa vanhu lowu wu nga eswitolo?",
+        "lang": "ts"
+      },
+      {
+        "bbox": [
+          25.2113037109375,
+          410.35687255859375,
+          216.02926635742188,
+          457.2828369140625
+        ],
+        "text": "Nal’ibali is a national reading-for-enjoyment campaign to spark and embed a culture of reading across South Africa. For more information, visit www.nalibali.org or www.nalibali.mobi",
+        "lang": "en"
+      },
+      {
+        "bbox": [
+          25.2113037109375,
+          476.2568359375,
+          315.2093505859375,
+          511.185791015625
+        ],
+        "text": "Nal’ibali i pfhumba ra rixaka ro hlayela ku tiphina ku tlhontlha ni ku simeka ntolovelo wo hlaya eAfrika-Dzonga hinkwaro. Ku kuma vuxokoxoko hi xitalo, endzela www.nalibali.org kumbe www.nalibali.mobi",
+        "lang": "ts"
+      }
+    ],
+    "art_bbox": [
+      105,
+      24,
+      220,
+      112
+    ]
+  }
+]
