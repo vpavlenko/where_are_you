@@ -1,48 +1,95 @@
-(() => {
-  const root = document.documentElement;
-  const language = document.querySelector('#language');
-  const pageSelect = document.querySelector('#page-select');
-  const smaller = document.querySelector('#smaller');
-  const larger = document.querySelector('#larger');
-  const sections = [...document.querySelectorAll('.story-page')];
-  let size = window.innerWidth <= 760 ? 20 : 22;
+(function () {
+  'use strict';
+  function parseSchedule(text, mapping, count) {
+    const valid = new Set(Object.values(mapping));
+    const stages = new Map();
+    const errors = [];
+    text.split(/\r?\n/).forEach((line, i) => {
+      if (!line.trim()) return;
+      const tokens = line.trim().toLowerCase().split(/\s+/);
+      const start = Number(tokens.shift());
+      if (!Number.isSafeInteger(start) || start < 1 || start > count || !tokens.length || tokens.some(t => !valid.has(t))) {
+        errors.push(i + 1); return;
+      }
+      tokens.forEach(t => stages.set(t, Math.min(start, stages.get(t) ?? Infinity)));
+    });
+    return { stages, errors };
+  }
+  function convertedParts(text, step, stages, mapping) {
+    return Array.from(text, char => {
+      const lower = char.toLowerCase();
+      const target = mapping[lower];
+      const converted = Boolean(target && (stages.get(target) ?? Infinity) <= step);
+      const value = converted ? (char === lower ? target : target[0].toUpperCase() + target.slice(1)) : char;
+      return { text: value, converted: converted || /[А-Яа-яЁё]/u.test(char) };
+    });
+  }
+  if (typeof module !== 'undefined') module.exports = { parseSchedule, convertedParts };
+  if (typeof document === 'undefined') return;
+  const config = JSON.parse(document.querySelector('#reader-config').textContent);
+  const order = document.querySelector('#letter-order');
+  const original = document.querySelector('#latin-only');
+  const error = document.querySelector('#schedule-error');
   const read = key => { try { return localStorage.getItem(key); } catch { return null; } };
   const save = (key, value) => { try { localStorage.setItem(key, value); } catch {} };
-  const setSize = () => {
-    root.style.setProperty('--reader-size', `${size}px`);
-    smaller.disabled = size <= 16;
-    larger.disabled = size >= 32;
+  const texts = [...document.querySelectorAll('.tsonga')].map(element => ({element, text: element.textContent, step: Number(element.dataset.step)}));
+  let stages = parseSchedule(config.defaultSchedule, config.mapping, config.paragraphCount).stages;
+  const render = () => {
+    for (const {element, text, step} of texts) {
+      const fragment = document.createDocumentFragment();
+      let run = '', active = false;
+      const flush = () => {
+        if (!run) return;
+        const node = active ? document.createElement('span') : document.createTextNode(run);
+        if (active) { node.className = 'cyrillic'; node.textContent = run; }
+        fragment.append(node); run = '';
+      };
+      for (const part of convertedParts(text, step, original.checked ? new Map() : stages, config.mapping)) {
+        if (part.converted !== active) { flush(); active = part.converted; }
+        run += part.text;
+      }
+      flush(); element.replaceChildren(fragment);
+    }
+    for (const pair of document.querySelectorAll('.paragraph-pair')) {
+      const number = Number(pair.dataset.paragraph);
+      const introduced = [...stages].filter(([,start]) => start === number).map(([target]) => `${Object.keys(config.mapping).filter(k => config.mapping[k] === target).join('/')} → ${target}`);
+      pair.querySelector('.introduced').textContent = original.checked ? '' : introduced.join(' · ');
+    }
   };
-  const storedSize = Number(read('where-are-you-size'));
-  if (storedSize >= 16 && storedSize <= 32) size = storedSize;
-  setSize();
-  const setLanguage = value => {
-    root.dataset.language = value;
-    root.lang = value === 'ts' ? 'ts' : 'en';
-    language.value = value;
+  const apply = () => {
+    const parsed = parseSchedule(order.value, config.mapping, config.paragraphCount);
+    order.setAttribute('aria-invalid', parsed.errors.length ? 'true' : 'false');
+    error.textContent = parsed.errors.length ? `Строка ${parsed.errors.join(', ')}` : '';
+    if (parsed.errors.length) return; // Retain the last valid rendering while editing.
+    stages = parsed.stages;
+    save('where-are-you-letter-order-v1', order.value);
+    render();
   };
-  const storedLanguage = read('where-are-you-language');
-  if (['both', 'en', 'ts'].includes(storedLanguage)) setLanguage(storedLanguage);
-  language.addEventListener('change', () => {
-    const current = sections.find(section => section.dataset.page === pageSelect.value);
-    setLanguage(language.value);
-    save('where-are-you-language', language.value);
-    if (current) current.scrollIntoView({block:'start'});
-  });
-  smaller.addEventListener('click', () => { size = Math.max(16, size - 2); setSize(); save('where-are-you-size', size); });
-  larger.addEventListener('click', () => { size = Math.min(32, size + 2); setSize(); save('where-are-you-size', size); });
+  order.value = read('where-are-you-letter-order-v1') ?? config.defaultSchedule;
+  original.checked = read('where-are-you-latin-only-v1') === 'true';
+  apply(); render();
+  order.addEventListener('input', apply);
+  original.addEventListener('change', () => { save('where-are-you-latin-only-v1', String(original.checked)); render(); });
+  document.querySelector('#auto-order').addEventListener('click', () => { order.value = config.defaultSchedule; original.checked = false; save('where-are-you-latin-only-v1', 'false'); apply(); });
+  const list = document.querySelector('#mapping-list');
+  for (const [latin, russian] of Object.entries(config.mapping)) {
+    if (!texts.some(({text}) => text.toLowerCase().includes(latin))) continue;
+    const entry = document.createElement('span');
+    entry.append(document.createTextNode(`${latin} → `));
+    const target = document.createElement('span'); target.className = 'cyrillic'; target.textContent = russian;
+    entry.append(target); list.append(entry);
+  }
+  const pageSelect = document.querySelector('#page-select');
+  const sections = [...document.querySelectorAll('.story-page')];
   pageSelect.addEventListener('change', () => {
-    const section = document.querySelector(`#page-${pageSelect.value}`);
-    section.scrollIntoView({block:'start'});
+    document.querySelector(`#page-${pageSelect.value}`).scrollIntoView({block:'start'});
     history.replaceState(null, '', `#page-${pageSelect.value}`);
   });
   let queued = false;
   const update = () => {
-    const boundary = document.querySelector('.toolbar').getBoundingClientRect().bottom + 60;
+    const boundary = document.querySelector('.toolbar').getBoundingClientRect().bottom + 40;
     let current = sections[0];
-    for (const section of sections) {
-      if (section.getBoundingClientRect().top <= boundary) current = section;
-    }
+    for (const section of sections) if (section.getBoundingClientRect().top <= boundary) current = section;
     pageSelect.value = current.dataset.page;
     const range = document.documentElement.scrollHeight - window.innerHeight;
     document.querySelector('#progress-bar').style.width = `${range > 0 ? Math.min(100, window.scrollY / range * 100) : 100}%`;

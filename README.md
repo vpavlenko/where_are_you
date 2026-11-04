@@ -16,3 +16,15 @@ Python 3 with PyMuPDF and Pillow is required only to repeat extraction and gener
 - `scripts/package.py` generates the portable reader and ZIP.
 
 The source PDF remains unchanged and is linked in the reader.
+
+## Parallel reader and letter order
+
+The reader now aligns all 36 English/Xitsonga paragraph pairs in two columns at 12 pt, including on narrow screens. Paragraph numbering follows the Xitsonga narrative (1–34), followed by the two back-cover paragraphs (35–36). The cover shares stage 1. English passages spanning the original page boundaries are aligned with their corresponding Xitsonga paragraphs. Original illustrations and all 16 page anchors remain.
+
+The textarea uses cumulative Cyrillic targets: `1 к т` enables k→к and t→т from paragraph 1; `3 а` adds a→а from paragraph 3. Blank lines and CRLF are supported. Repeated targets use their earliest paragraph. Invalid lines show their line numbers and retain the last valid rendering. An empty schedule leaves the original Latin text. Changes persist locally; **Автопорядок** restores the computed schedule and **Латиница** shows the untouched source.
+
+The default introduces one new target per paragraph. A maximum-weight assignment maximizes the number of replaced source characters over the 34 narrative paragraphs, with the constraint that each target occurs in its introduction paragraph. This is optimal for that coverage metric and fixed pacing, not a validated pedagogical optimum. The 24 stages end at paragraph 24, leaving 10 narrative paragraphs for continued exposure.
+
+Replacement is an approximate character substitution, not a phonetic transcription: digraphs remain character sequences, w/v both map to в, x maps to ш, c to ч, and j to дж. The visible correspondence table makes the choices inspectable. See the [Tsonga alphabet chart](https://www.omniglot.com/charts/tsonga.pdf) for the original sounds. All Cyrillic characters in the reading text receive the contrasting color.
+
+Build/package require only Python's standard library; repeat extraction still needs PyMuPDF and Pillow. Run `python3 scripts/build.py`, `node scripts/check_reader.cjs`, and `python3 scripts/package.py` after changes.
