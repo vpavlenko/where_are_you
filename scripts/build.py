@@ -60,7 +60,7 @@ def art(n,cover=False):
     loading='fetchpriority="high"' if cover else 'loading="lazy"'
     return f'<figure class="art art-{n}"><img src="assets/page-{source:02}.webp" width="{w}" height="{h}" alt="" {loading} decoding="async"></figure>'
 def row(i,en,ts):
-    return f'<div class="paragraph-pair" id="paragraph-{i}" data-paragraph="{i}"><p lang="en" class="story-text">{esc(en)}</p><div class="translation"><a class="paragraph-number" href="#paragraph-{i}" aria-label="Абзац {i}">{i:02}</a><div class="introduced"></div><p lang="ts" class="story-text tsonga" data-step="{i}">{esc(ts)}</p></div></div>'
+    return f'<div class="paragraph-pair" id="paragraph-{i}" data-paragraph="{i}"><p lang="en" class="story-text">{esc(en)}</p><div class="translation"><a class="paragraph-number" href="#paragraph-{i}" aria-label="Абзац {i}">{i:02}</a><p lang="ts" class="story-text tsonga" data-step="{i}">{esc(ts)}</p></div><div class="introduced"></div></div>'
 parts=[]
 for r in records:
     n=r['page']; start=f'<section class="story-page{ " cover" if n==1 else ""}{ " back-cover" if n==16 else ""}" id="page-{n}" data-page="{n}" aria-label="{n}"><a class="page-number" href="#page-{n}">{n:02} / 16</a>'
