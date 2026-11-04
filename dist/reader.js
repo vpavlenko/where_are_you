@@ -38,20 +38,28 @@
   const error = document.querySelector('#schedule-error');
   const read = key => { try { return localStorage.getItem(key); } catch { return null; } };
   const save = (key, value) => { try { localStorage.setItem(key, value); } catch {} };
+  const cyrillicClass = text => /[ХхУуСс]/u.test(text) ? 'cyrillic false-friend' : 'cyrillic';
+  const russianSpan = text => {
+    const span = document.createElement('span');
+    span.className = cyrillicClass(text);
+    span.textContent = text;
+    return span;
+  };
   const texts = [...document.querySelectorAll('.tsonga')].map(element => ({element, text: element.textContent, step: Number(element.dataset.step)}));
   let stages = parseSchedule(config.defaultSchedule, config.mapping, config.paragraphCount).stages;
   const render = () => {
     for (const {element, text, step} of texts) {
       const fragment = document.createDocumentFragment();
-      let run = '', active = false;
+      let run = '', active = '';
       const flush = () => {
         if (!run) return;
         const node = active ? document.createElement('span') : document.createTextNode(run);
-        if (active) { node.className = 'cyrillic'; node.textContent = run; }
+        if (active) { node.className = active; node.textContent = run; }
         fragment.append(node); run = '';
       };
       for (const part of convertedParts(text, step, original.checked ? new Map() : stages, config.mapping)) {
-        if (part.converted !== active) { flush(); active = part.converted; }
+        const style = part.converted ? cyrillicClass(part.text) : '';
+        if (style !== active) { flush(); active = style; }
         run += part.text;
       }
       flush(); element.replaceChildren(fragment);
@@ -61,12 +69,12 @@
       const introduced = [...stages].filter(([,start]) => start === number).flatMap(([target]) => {
         // These lowercase Latin/Cyrillic pairs have the same visible letterform.
         const sources = Object.keys(config.mapping).filter(k => config.mapping[k] === target && !['a', 'e', 'o'].includes(k));
-        return sources.map(source => `${source} → ${target}`);
+        return sources.map(source => ({source, target}));
       });
-      pair.querySelector('.introduced').replaceChildren(...(original.checked ? [] : introduced.map(text => {
+      pair.querySelector('.introduced').replaceChildren(...(original.checked ? [] : introduced.map(({source, target}) => {
         const line = document.createElement('span');
         line.className = 'introduced-entry';
-        line.textContent = text;
+        line.append(document.createTextNode(`${source} → `), russianSpan(target));
         return line;
       })));
     }
@@ -92,7 +100,7 @@
     if (!texts.some(({text}) => text.toLowerCase().includes(latin))) continue;
     const entry = document.createElement('span');
     entry.append(document.createTextNode(`${latin} → `));
-    const target = document.createElement('span'); target.className = 'cyrillic'; target.textContent = russian;
+    const target = russianSpan(russian);
     entry.append(target); list.append(entry);
   }
   const pageSelect = document.querySelector('#page-select');
