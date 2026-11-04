@@ -43,7 +43,7 @@
   const error = document.querySelector('#schedule-error');
   const read = key => { try { return localStorage.getItem(key); } catch { return null; } };
   const save = (key, value) => { try { localStorage.setItem(key, value); } catch {} };
-  const cyrillicClass = text => /[ХхУуСс]/u.test(text) ? 'cyrillic false-friend' : 'cyrillic';
+  const cyrillicClass = text => /[ХхУуСсРрВв]/u.test(text) ? 'cyrillic false-friend' : 'cyrillic';
   const russianSpan = text => {
     const span = document.createElement('span');
     span.className = cyrillicClass(text);
