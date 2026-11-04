@@ -52,7 +52,11 @@
     }
     for (const pair of document.querySelectorAll('.paragraph-pair')) {
       const number = Number(pair.dataset.paragraph);
-      const introduced = [...stages].filter(([,start]) => start === number).map(([target]) => `${Object.keys(config.mapping).filter(k => config.mapping[k] === target).join('/')} → ${target}`);
+      const introduced = [...stages].filter(([,start]) => start === number).flatMap(([target]) => {
+        // These lowercase Latin/Cyrillic pairs have the same visible letterform.
+        const sources = Object.keys(config.mapping).filter(k => config.mapping[k] === target && !['a', 'e', 'o'].includes(k));
+        return sources.length ? [`${sources.join('/')} → ${target}`] : [];
+      });
       pair.querySelector('.introduced').textContent = original.checked ? '' : introduced.join(' · ');
     }
   };
