@@ -16,13 +16,19 @@
     return { stages, errors };
   }
   function convertedParts(text, step, stages, mapping) {
-    return Array.from(text, char => {
-      const lower = char.toLowerCase();
-      const target = mapping[lower];
+    const parts = [];
+    const keys = Object.keys(mapping).sort((a, b) => b.length - a.length);
+    for (let i = 0; i < text.length;) {
+      const key = keys.find(key => text.slice(i, i + key.length).toLowerCase() === key);
+      const source = key ? text.slice(i, i + key.length) : String.fromCodePoint(text.codePointAt(i));
+      const target = key ? mapping[key] : null;
       const converted = Boolean(target && (stages.get(target) ?? Infinity) <= step);
-      const value = converted ? (char === lower ? target : target[0].toUpperCase() + target.slice(1)) : char;
-      return { text: value, converted: converted || /[А-Яа-яЁё]/u.test(char) };
-    });
+      const uppercase = source[0] !== source[0].toLowerCase();
+      const value = converted ? (uppercase ? target[0].toUpperCase() + target.slice(1) : target) : source;
+      parts.push({text: value, converted: converted || /[А-Яа-яЁё]/u.test(source)});
+      i += source.length;
+    }
+    return parts;
   }
   if (typeof module !== 'undefined') module.exports = { parseSchedule, convertedParts };
   if (typeof document === 'undefined') return;
@@ -55,9 +61,14 @@
       const introduced = [...stages].filter(([,start]) => start === number).flatMap(([target]) => {
         // These lowercase Latin/Cyrillic pairs have the same visible letterform.
         const sources = Object.keys(config.mapping).filter(k => config.mapping[k] === target && !['a', 'e', 'o'].includes(k));
-        return sources.length ? [`${sources.join('/')} → ${target}`] : [];
+        return sources.map(source => `${source} → ${target}`);
       });
-      pair.querySelector('.introduced').textContent = original.checked ? '' : introduced.join(' · ');
+      pair.querySelector('.introduced').replaceChildren(...(original.checked ? [] : introduced.map(text => {
+        const line = document.createElement('span');
+        line.className = 'introduced-entry';
+        line.textContent = text;
+        return line;
+      })));
     }
   };
   const apply = () => {
@@ -69,7 +80,8 @@
     save('where-are-you-letter-order-v1', order.value);
     render();
   };
-  order.value = read('where-are-you-letter-order-v1') ?? config.defaultSchedule;
+  const storedOrder = read('where-are-you-letter-order-v1');
+  order.value = config.legacyDefaultSchedules?.includes(storedOrder) ? config.defaultSchedule : storedOrder ?? config.defaultSchedule;
   original.checked = read('where-are-you-latin-only-v1') === 'true';
   apply(); render();
   order.addEventListener('input', apply);

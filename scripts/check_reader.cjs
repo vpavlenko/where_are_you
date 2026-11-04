@@ -10,8 +10,17 @@ assert.equal(render('Afrika a tlulatlula',2,'1 к т\n3 а'),render('Afrika a tl
 assert.equal(render('Afrika a tlulatlula',3,'1 к т\n3 а'),'Аfriкa a тluлaтluлa'.replaceAll('л','l').replaceAll('a','а'));
 assert.equal(render('Afrika',36,''),'Afrika');
 assert.equal(render('K T k t',1,'1 к т'),'К Т к т');
-assert.equal(render('x X y Y j J',1,'1 ш й дж'),'ш Ш й Й дж Дж');
+assert.equal(render('x X y Y j J',1,'1 щ й дж'),'щ Щ й Й дж Дж');
 assert.equal(render('w v',1,'1 в'),'в в');
+assert.equal(render('sw Sw SW s w x X',1,'1 ш щ с в'),'ш Ш Ш с в щ Щ');
+assert.equal(render('sw swi x',1,'1 с в'), 'sw swi x');
+assert.equal(render('sw x',1,'2 ш\n3 щ'), 'sw x');
+assert.equal(render('sw x',2,'2 ш\n3 щ'), 'ш x');
+assert.equal(render('sw x',3,'2 ш\n3 щ'), 'ш щ');
+assert.equal(render('s w sw',36,''),'s w sw');
+assert.equal(render('sw🙂x',1,'1 ш щ'),'ш🙂щ');
+assert.equal(render('q Q k K x sw',1,'1 к щ ш'),'q Q к К щ ш');
+assert.equal(config.mapping.q,undefined);
 assert.equal(parse('3 а\n1 а').stages.get('а'),1);
 assert.equal(parse('1 к т\r\n\n3 а').errors.length,0);
 for (const invalid of ['0 а','-1 а','37 а','1.5 а','1 q','1','<img src=x>','1 __proto__']) assert.equal(parse(invalid).errors.length,1,invalid);

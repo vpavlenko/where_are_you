@@ -1,7 +1,7 @@
 """Build aligned source-language columns and the optimal letter introduction schedule."""
 from pathlib import Path
 from collections import Counter
-import json, html, shutil
+import json, html, shutil, re
 import struct
 def image_size(path):
     data=path.read_bytes()
@@ -12,7 +12,9 @@ def image_size(path):
     raise ValueError(path)
 R=Path(__file__).resolve().parents[1]; out=R/'dist'; esc=html.escape
 records=json.loads((R/'story-source.json').read_text())
-mapping=dict(zip('abcdefghijklmnopqrstuvwxyz', ['а','б','ч','д','е','ф','г','х','и','дж','к','л','м','н','о','п','к','р','с','т','у','в','в','ш','й','з']))
+mapping=dict(zip('abcdefghijklmnopqrstuvwxyz', ['а','б','ч','д','е','ф','г','х','и','дж','к','л','м','н','о','п','к','р','с','т','у','в','в','щ','й','з']))
+mapping.pop('q')
+mapping['sw']='ш'
 body=[r for r in records if 2<=r['page']<=14 and r['page']!=12]
 english=[(r['page'],b['text']) for r in body for b in r['blocks'] if b['lang']=='en']
 tsonga=[(r['page'],b['text']) for r in body for b in r['blocks'] if b['lang']=='ts']
@@ -23,7 +25,12 @@ for i,((ep,en),(tp,ts)) in enumerate(zip(english,tsonga),1):
 # One new target per paragraph. Maximum-weight assignment optimizes total source
 # characters converted throughout all 34 paragraphs. Each introduction must occur
 # in that paragraph; no pedagogical optimality claim.
-counts=[Counter(mapping[c] for c in t.lower() if c in mapping) for _,t in tsonga]
+counts=[]
+for _,text in tsonga:
+    count=Counter()
+    for token in re.findall(r'sw|[a-z]',text.lower()):
+        if token in mapping:count[mapping[token]]+=len(token)
+    counts.append(count)
 targets=sorted(set().union(*(c.keys() for c in counts)))
 n=len(targets)
 weights=[[sum(c[t] for c in counts[slot:]) for t in targets] for slot in range(n)]
@@ -52,7 +59,7 @@ def assignment(cost):
 order=assignment([[-x if counts[i][targets[j]] else 10**9 for j,x in enumerate(row)] for i,row in enumerate(weights)])
 assert all(counts[i][targets[t]] for i,t in enumerate(order)), 'Every introduced letter must occur in its introduction paragraph'
 schedule='\n'.join(f'{i+1} {targets[t]}' for i,t in enumerate(order))
-config={'mapping':mapping,'defaultSchedule':schedule,'paragraphCount':36}
+config={'mapping':mapping,'defaultSchedule':schedule,'paragraphCount':36,'legacyDefaultSchedules':['1 а\n2 и\n3 е\n4 ч\n5 к\n6 н\n7 в\n8 л\n9 у\n10 х\n11 о\n12 р\n13 дж\n14 й\n15 м\n16 д\n17 с\n18 б\n19 п\n20 т\n21 г\n22 ш\n23 з\n24 ф']}
 def art(n,cover=False):
     source=4 if cover else n; path=out/f'assets/page-{source:02}.webp'
     if not path.exists():return ''
