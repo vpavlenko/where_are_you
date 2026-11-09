@@ -1,0 +1,133 @@
+{
+  "pages": 32,
+  "media": [
+    {
+      "file": "assets/media/9d8033227788cf2d247e.webp",
+      "bytes": 435974
+    },
+    {
+      "file": "assets/media/0e1e14d6d6703a4ea212.webp",
+      "bytes": 692932
+    },
+    {
+      "file": "assets/media/9d0f6a553fa4a462448a.webp",
+      "bytes": 199550
+    },
+    {
+      "file": "assets/media/d5f8cf499167d10664f6.webp",
+      "bytes": 599928
+    },
+    {
+      "file": "assets/media/a3cc6e14e1cb082205e3.webp",
+      "bytes": 240150
+    },
+    {
+      "file": "assets/media/43a1a1917f80a419923b.webp",
+      "bytes": 268696
+    },
+    {
+      "file": "assets/media/3bbdf1ef66db90c4b3ee.webp",
+      "bytes": 46438
+    },
+    {
+      "file": "assets/media/90f5af876a9498af8d5e.webp",
+      "bytes": 53152
+    },
+    {
+      "file": "assets/media/a8775dac0138b5fde2e5.webp",
+      "bytes": 449684
+    },
+    {
+      "file": "assets/media/0222506d16e9f47ee433.webp",
+      "bytes": 565974
+    },
+    {
+      "file": "assets/media/fc6881602b74d6a201bd.webp",
+      "bytes": 684084
+    },
+    {
+      "file": "assets/media/0b102d614f21d4909600.webp",
+      "bytes": 152144
+    },
+    {
+      "file": "assets/media/6e94b773c0492776e623.webp",
+      "bytes": 269116
+    },
+    {
+      "file": "assets/media/6bb5c55a5c49b7e63a36.webp",
+      "bytes": 466638
+    },
+    {
+      "file": "assets/media/6a2c4ca86975dc077ea8.webp",
+      "bytes": 535706
+    },
+    {
+      "file": "assets/media/435a0ef6276401dff5d6.webp",
+      "bytes": 487686
+    },
+    {
+      "file": "assets/media/cfbfafe5ef1c00bd3f2b.webp",
+      "bytes": 92676
+    },
+    {
+      "file": "assets/media/a440675d559c4e717931.webp",
+      "bytes": 154830
+    },
+    {
+      "file": "assets/media/af7d70eaa45bc0c27ad4.webp",
+      "bytes": 250018
+    },
+    {
+      "file": "assets/media/70ef98edd37f0684eb5f.webp",
+      "bytes": 53140
+    },
+    {
+      "file": "assets/media/5440565efaedf2faae1f.webp",
+      "bytes": 15152
+    },
+    {
+      "file": "assets/media/ffda6b05e198784b73af.webp",
+      "bytes": 312862
+    },
+    {
+      "file": "assets/media/fdd9368dd6a1b22f0d2b.webp",
+      "bytes": 214200
+    },
+    {
+      "file": "assets/media/167bc153b8c9eff33c63.webp",
+      "bytes": 359470
+    },
+    {
+      "file": "assets/media/8dc3c370ee4add9fa0dc.webp",
+      "bytes": 324852
+    },
+    {
+      "file": "assets/media/24ff8e9b18b1bc65c3e5.webp",
+      "bytes": 329986
+    }
+  ],
+  "source_pdf_sha256": "e8f9e65f14d0c4a3a1fbdd1066ffec2b48060deea0ef8b7b6d2955b327979177",
+  "reader_bytes": 2546908,
+  "downloads": {
+    "picture-cards-a4.pdf": {
+      "bytes": 1270921,
+      "sha256": "73cf154775f154e482f209b5c8bad00de8588cfc453cf61e1ea7eea8f5eac6b4"
+    },
+    "zhiza-sources.pdf": {
+      "bytes": 45959,
+      "sha256": "06cd000240c59eeed312ea36bdc307f71cef9347bd709ade743da95c168f676e"
+    },
+    "lesson-1-word-cards-a4.pdf": {
+      "bytes": 19737,
+      "sha256": "5299a9dafd20a7bf94a55055fab186a162b6b2323bdd334c6481a96f12d97267"
+    },
+    "zhiza-a4-booklet.pdf": {
+      "bytes": 14113016,
+      "sha256": "21596a9ba771813300226e828e5d49432abd1831bc53a9e1ab00e4f5ce8880e7"
+    },
+    "zhiza-a5.pdf": {
+      "bytes": 14117621,
+      "sha256": "f501f0521ac84a99c74a851c0c04f7925ad162ced85101d3e9aa619d27257b9e"
+    }
+  }
+}
