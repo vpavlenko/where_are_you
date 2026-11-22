@@ -64,15 +64,17 @@ EXERCISE = (
     (("avocado", "yellow"), ("gum", "green"), ("pen", "red"), ("hair", "yellow")),
     (("notebook", "red"), ("pen", "yellow"), ("head", "green"), ("hair", "red")),
 )
+# Chepisi: Nal'ibali Ed. 168, p. 13.
+# https://nalibali.org/wp-content/uploads/2025/07/unnamed-file-212.pdf#page=13
 # Meal terms: DSAC glossary and Nal'ibali.
 CHORUS = (
-    ("Жва́чка на за́втрак,", "жыvacka na zaftrak", "Chewing gum hi xifihlulo,"),
+    ("Жва́чка на за́втрак,", "жыvacka na zaftrak", "Chepisi hi xifihlulo,"),
     ("Ко́ла на у́жин.", "kola na uжыn", "Coca-Cola hi xilalelo."),
     ("Я так уста́ла,", "ya tak ustala", "Ndzi karhele ngopfu."),
     ("Ты мне не ну́жен.", "tы mnye nye nuжеn", "Wena a ndzi ku lavi."),
 )
 GLOSSES = (
-    ("жва́чка", "chewing gum"),
+    ("жва́чка", "chepisi"),
     ("на", "hi"),
     ("за́втрак", "xifihlulo"),
     ("ко́ла", "Coca-Cola"),
