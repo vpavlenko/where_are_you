@@ -1,10 +1,15 @@
-"""Small vector drawings for the жиза vocabulary handout."""
+"""Vector illustrations for the жиза vocabulary handout."""
 
+from io import BytesIO
 from math import cos, pi, sin
+from pathlib import Path
 
-from reportlab.lib.colors import HexColor
+from reportlab.graphics import renderPDF
+from reportlab.lib.colors import HexColor, black, linearlyInterpolatedColor, white
+from svglib.svglib import svg2rlg
 
 
+ART_DIR = Path(__file__).resolve().parents[1] / "handouts/zhiza-practice"
 INK = HexColor("#25201d")
 PAPER = HexColor("#fff6df")
 STEM = HexColor("#74884a")
@@ -80,20 +85,19 @@ def pen(canvas, color):
     canvas.restoreState()
 
 
+def draw_svg(canvas, filename, replacements):
+    svg = (ART_DIR / filename).read_text(encoding="utf-8")
+    for original, replacement in replacements.items():
+        svg = svg.replace(original, replacement)
+    drawing = svg2rlg(BytesIO(svg.encode("utf-8")))
+    scale = 88 / max(drawing.width, drawing.height)
+    canvas.translate(50 - drawing.width * scale / 2, 50 - drawing.height * scale / 2)
+    canvas.scale(scale, scale)
+    renderPDF.draw(drawing, canvas, 0, 0)
+
+
 def book(canvas, color):
-    path(canvas, [
-        (21, 23), (75, 16), (88, 22), (88, 75), (36, 81), (21, 74),
-    ], color)
-    path(canvas, [
-        (24, 23), (76, 16), (84, 21), (84, 29), (32, 35), (24, 30),
-    ], PAPER)
-    path(canvas, [
-        (20, 28), (17, 30, 16, 32, 16, 36), (16, 78),
-        (16, 83, 19, 86, 24, 88), (88, 80), (88, 30), (76, 22),
-    ], color)
-    canvas.line(25, 31, 25, 84)
-    path(canvas, [(41, 69), (71, 65), (71, 49), (41, 53)], PAPER)
-    canvas.line(48, 61, 64, 59)
+    draw_svg(canvas, "book.svg", {"fill:#333333": f"fill:#{color.hexval()[2:]}"})
 
 
 def notebook(canvas, color):
@@ -109,22 +113,17 @@ def notebook(canvas, color):
 
 
 def gum(canvas, color):
-    canvas.saveState()
-    canvas.translate(50, 50)
-    canvas.rotate(-13)
-    canvas.translate(-50, -50)
-    canvas.setFillColor(PAPER)
-    canvas.roundRect(59, 41, 35, 18, 4, fill=1, stroke=1)
-    for x in (79, 85):
-        canvas.line(x, 45, x, 55)
-    path(canvas, [
-        (8, 36), (16, 32), (23, 37), (31, 33), (72, 33),
-        (77, 38), (77, 62), (72, 67), (31, 67), (23, 63),
-        (16, 68), (8, 64),
-    ], color)
-    canvas.line(24, 37, 24, 63)
-    path(canvas, [(35, 49), (41, 59), (50, 54), (59, 59), (67, 50)])
-    canvas.restoreState()
+    dark = linearlyInterpolatedColor(black, color, 0, 1, 0.76)
+    light = linearlyInterpolatedColor(color, white, 0, 1, 0.32)
+    base_hex = f"#{color.hexval()[2:]}"
+    dark_hex = f"#{dark.hexval()[2:]}"
+    draw_svg(canvas, "gum.svg", {
+        "#4a8930": dark_hex,
+        "#67bf43": base_hex,
+        "#7ba851": base_hex,
+        "#9bd16a": f"#{light.hexval()[2:]}",
+        "#c83737": dark_hex,
+    })
 
 
 def sun(canvas, color):

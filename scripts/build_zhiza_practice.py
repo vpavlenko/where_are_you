@@ -1,6 +1,6 @@
 """Build the unnumbered A5 practice sheets for жиза.
 
-Install ReportLab and uharfbuzz before running this script.
+Install ReportLab, uharfbuzz and svglib before running this script.
 """
 
 from collections import Counter
