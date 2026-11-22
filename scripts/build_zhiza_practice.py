@@ -12,7 +12,7 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont, shapeStr
 from reportlab.pdfgen.canvas import Canvas
 
-from zhiza_lesson_illustrations import draw_object
+from zhiza_lesson_illustrations import FLUENT_LICENSE, draw_object
 
 ROOT = Path(__file__).resolve().parents[1]
 FONT_DIR = ROOT / "handouts/fonts"
@@ -64,25 +64,26 @@ EXERCISE = (
     (("avocado", "yellow"), ("gum", "green"), ("pen", "red"), ("hair", "yellow")),
     (("notebook", "red"), ("pen", "yellow"), ("head", "green"), ("hair", "red")),
 )
+# Chepisi: Nal'ibali Ed. 168. Meal terms: DSAC glossary and Nal'ibali.
 CHORUS = (
-    ("Жва́чка на за́втрак,", "жыvacka na zaftrak", "Chewing gum for breakfast,"),
-    ("Ко́ла на у́жин.", "kola na uжыn", "Cola for dinner."),
-    ("Я так уста́ла,", "ya tak ustala", "I’m so tired."),
-    ("Ты мне не ну́жен.", "tы mnye nye nuжеn", "I don’t need you."),
+    ("Жва́чка на за́втрак,", "жыvacka na zaftrak", "Chepisi hi xifihlulo,"),
+    ("Ко́ла на у́жин.", "kola na uжыn", "Coca-Cola hi xilalelo."),
+    ("Я так уста́ла,", "ya tak ustala", "Ndzi karhele ngopfu."),
+    ("Ты мне не ну́жен.", "tы mnye nye nuжеn", "Wena a ndzi ku lavi."),
 )
 GLOSSES = (
-    ("жва́чка", "chewing gum"),
-    ("на", "for (here)"),
-    ("за́втрак", "breakfast"),
-    ("ко́ла", "cola"),
-    ("у́жин", "dinner"),
-    ("я", "I"),
-    ("так", "so"),
-    ("уста́ла", "got tired (fem.)"),
-    ("ты", "you (sing.)"),
-    ("мне", "to me"),
-    ("не", "not"),
-    ("ну́жен", "needed (masc.)"),
+    ("жва́чка", "chepisi"),
+    ("на", "hi"),
+    ("за́втрак", "xifihlulo"),
+    ("ко́ла", "Coca-Cola"),
+    ("у́жин", "xilalelo"),
+    ("я", "ndzi"),
+    ("так", "ngopfu"),
+    ("уста́ла", "ndzi karhele"),
+    ("ты", "wena"),
+    ("мне", "eka mina"),
+    ("не", "a … -i"),
+    ("ну́жен", "wa laveka"),
 )
 
 
@@ -164,38 +165,6 @@ def colour_exercise(c):
             rule(c, top + 39)
 
 
-def where(c):
-    heading(c, "Где?", 74, 42)
-    write(c, "gdzye?", MARGIN + 153, 60, 14, "Bold", BLUE)
-    write(c, "Where?", MARGIN + 153, 77, 12)
-
-    write(c, "Где жёлтая кни́га?", MARGIN, 123, 18, "Bold")
-    write(c, "Вверху́.", MARGIN + 229, 123, 16, "Bold", GREEN)
-    write(c, "А где кра́сная ру́чка?", MARGIN, 155, 18, "Bold")
-    write(c, "Внизу́.", MARGIN + 229, 155, 16, "Bold", GREEN)
-
-    rows = (
-        ("вверху́", "at the top", (("book", "yellow"), ("gum", "red"), ("sun", "red"))),
-        ("внизу́", "at the bottom", (("avocado", "green"), ("pen", "red"), ("notebook", "green"))),
-    )
-    for index, (russian, english, icons) in enumerate(rows):
-        top = 231 + index * 104
-        write(c, russian, MARGIN, top - 3, 15, "Bold", GREEN)
-        write(c, english, MARGIN, top + 14, 11)
-        for column_index, (key, colour) in enumerate(icons):
-            picture(c, key, MARGIN + 129 + column_index * 91, top, 52, colour)
-        rule(c, top + 38)
-
-    write(c, "Ask and answer.", MARGIN, 426, 12, "Bold")
-    for index, question in enumerate((
-        "Где кра́сная жва́чка?",
-        "Где зелёное авока́до?",
-        "Где зелёная тетра́дь?",
-    )):
-        write(c, question, MARGIN, 457 + index * 37, 17)
-        rule(c, 458 + index * 37, MARGIN + 208)
-
-
 def song(c):
     heading(c, "Жва́чка", 63, 34)
     artist = "Алёна Швец · First listen ↗"
@@ -204,20 +173,20 @@ def song(c):
     c.linkURL(SONG_URL, (MARGIN, H - 91, MARGIN + link_width, H - 75))
     write(c, "Can someone try to read first?", MARGIN, 125, 12)
     write(c, "Припе́в", MARGIN, 154, 16, "Bold")
-    for index, (russian, cue, english) in enumerate(CHORUS):
+    for index, (russian, cue, xitsonga) in enumerate(CHORUS):
         top = 185 + index * 47
         write(c, russian, MARGIN, top, 16, "Bold")
         write(c, cue, MARGIN, top + 16, 10.5, colour=BLUE)
-        write(c, english, MARGIN + 190, top, 11, "Literata")
+        write(c, xitsonga, MARGIN + 190, top, 11, "Literata")
         rule(c, top + 26)
 
-    write(c, "Words", MARGIN, 384, 17, "Bold")
-    for index, (russian, english) in enumerate(GLOSSES):
+    write(c, "Marito", MARGIN, 384, 17, "Bold")
+    for index, (russian, xitsonga) in enumerate(GLOSSES):
         column, row = divmod(index, 6)
         x = MARGIN + column * 184
         top = 414 + row * 25
         write(c, russian, x, top, 12, "Bold")
-        write(c, english, x + 65, top, 10.5, "Literata")
+        write(c, xitsonga, x + 65, top, 10.5, "Literata")
 
 
 def build():
@@ -233,9 +202,13 @@ def build():
         pdfmetrics.registerFont(TTFont(name, str(FONT_DIR / filename), shapable=True))
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     c = Canvas(str(OUTPUT), pagesize=A5, pageCompression=1, invariant=1, initialFontName="Sans")
-    c.setTitle("жиза · Phonics, Review, Где?, Жвачка")
+    c.setTitle("жиза · Phonics, Review, Жвачка")
+    c.setSubject(
+        "Mango, avocado and pen illustrations adapted from Microsoft Fluent UI Emoji.\n"
+        + FLUENT_LICENSE.read_text(encoding="utf-8").strip()
+    )
     c.setViewerPreference("PrintScaling", "None")
-    for page in (phonics_and_review, colour_exercise, where, song):
+    for page in (phonics_and_review, colour_exercise, song):
         page(c)
         c.showPage()
     c.save()
