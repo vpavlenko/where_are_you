@@ -136,7 +136,6 @@ def phonics_and_review(c):
         phonics_row(c, russian, cue, 86 + index * 33)
     write(c, "Say with other consonants", MARGIN, 222, 11)
     phonics_row(c, "жа жо жу же жи", "жа жo жu же жы", 252)
-    write(c, "жи sounds like жы.", MARGIN, 283, 10, colour=BLUE)
 
     heading(c, "Review", 325, 27)
     write(c, "Colors", MARGIN, 348, 11, "Bold")
