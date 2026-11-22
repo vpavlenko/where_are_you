@@ -25,7 +25,6 @@ INK = "#151515"
 BLUE = "#00658a"
 GREEN = "#397020"
 FAINT = "#d7dadd"
-SONG_URL = "https://www.youtube.com/watch?v=t-QCaEA_N6k"
 
 COLOURS = {
     "red": "#ee524e",
@@ -71,8 +70,8 @@ EXERCISE = (
 CHORUS = (
     ("Жва́чка на за́втрак,", "жыvacka na zaftrak", "Chepisi hi xifihlulo,"),
     ("Ко́ла на у́жин.", "kola na uжыn", "Coca-Cola hi xilalelo."),
-    ("Я так уста́ла,", "ya tak ustala", "Ndzi karhele ngopfu."),
-    ("Ты мне не ну́жен.", "tы mnye nye nuжеn", "Wena a ndzi ku lavi."),
+    ("Я так уста́ла,", "ya tak ustala", "Ndzi (girl) karhele ngopfu."),
+    ("Ты мне не ну́жен.", "tы mnye nye nuжеn", "Wena (boy) a ndzi ku lavi."),
 )
 GLOSSES = (
     ("жва́чка", "chepisi"),
@@ -205,10 +204,7 @@ def colour_exercise(c):
 
 def song(c):
     heading(c, "Жва́чка", 63, 34)
-    artist = "Алёна Швец · First listen ↗"
-    write(c, artist, MARGIN, 88, 12, "Bold", GREEN)
-    link_width = pdfmetrics.stringWidth(artist, "Bold", 12)
-    c.linkURL(SONG_URL, (MARGIN, H - 91, MARGIN + link_width, H - 75))
+    write(c, "Алёна Швец", MARGIN, 88, 12, "Bold", GREEN)
     write(c, "Can someone try to read first?", MARGIN, 125, 12)
     write(c, "Припе́в", MARGIN, 154, 16, "Bold")
     for index, (russian, cue, xitsonga) in enumerate(CHORUS):
