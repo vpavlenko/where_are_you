@@ -1,4 +1,4 @@
-"""Build the unnumbered A5 practice sheets for жиза.
+"""Build the unnumbered A4 practice sheets for жиза.
 
 Install ReportLab, uharfbuzz and svglib before running this script.
 """
@@ -8,7 +8,7 @@ from pathlib import Path
 import re
 
 from reportlab.lib.colors import HexColor
-from reportlab.lib.pagesizes import A5
+from reportlab.lib.pagesizes import A4, A5
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont, shapeStr
 from reportlab.pdfgen.canvas import Canvas
@@ -17,7 +17,8 @@ from zhiza_lesson_illustrations import FLUENT_LICENSE, draw_object
 
 ROOT = Path(__file__).resolve().parents[1]
 FONT_DIR = ROOT / "handouts/fonts"
-OUTPUT = ROOT / "output/pdf/zhiza-practice-a5.pdf"
+OUTPUT = ROOT / "output/pdf/zhiza-practice-a4.pdf"
+# Retain the original A5 layout coordinates for proportional enlargement.
 W, H = A5
 MARGIN = 34
 WIDTH = W - 2 * MARGIN
@@ -296,15 +297,21 @@ def build():
     ):
         pdfmetrics.registerFont(TTFont(name, str(FONT_DIR / filename), shapable=True))
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    c = Canvas(str(OUTPUT), pagesize=A5, pageCompression=1, invariant=1, initialFontName="Sans")
+    c = Canvas(str(OUTPUT), pagesize=A4, pageCompression=1, invariant=1, initialFontName="Sans")
     c.setTitle("жиза · Phonics, Review, Жвачка, Где?")
     c.setSubject(
         "Mango, avocado and pen illustrations adapted from Microsoft Fluent UI Emoji.\n"
         + FLUENT_LICENSE.read_text(encoding="utf-8").strip()
     )
     c.setViewerPreference("PrintScaling", "None")
+    paper_width, paper_height = A4
+    scale = min(paper_width / W, paper_height / H)
     for page in (phonics_and_review, colour_exercise, song, where):
+        c.saveState()
+        c.translate((paper_width - W * scale) / 2, (paper_height - H * scale) / 2)
+        c.scale(scale, scale)
         page(c)
+        c.restoreState()
         c.showPage()
     c.save()
     print(OUTPUT)
