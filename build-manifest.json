@@ -136,6 +136,10 @@
     "zhiza-practice-a5.pdf": {
       "bytes": 123708,
       "sha256": "048e256e9b7187dc9284a83af54f898ea9633d86a81c8ecd9889c720fc7e8217"
+    },
+    "zhiza-practice-a4.pdf": {
+      "bytes": 123813,
+      "sha256": "20d8cd405a4e8e59f020a1897195af31d5601515c1435983b0e096e6fc4b9487"
     }
   }
 }
