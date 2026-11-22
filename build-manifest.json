@@ -132,6 +132,10 @@
     "cyrillic-cognates-p-u-r-a4.pdf": {
       "bytes": 45317,
       "sha256": "12cb13125fbc44eb26d5ccc74005b49963662b0d94a7af82eeaa7e175c24a99f"
+    },
+    "zhiza-practice-a5.pdf": {
+      "bytes": 54223,
+      "sha256": "ed5b062933360063204ebe9841e0de8e5a382787cbade441f9499300981f5369"
     }
   }
 }
