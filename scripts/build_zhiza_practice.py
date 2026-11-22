@@ -31,6 +31,7 @@ COLOURS = {
     "yellow": "#f6cc43",
     "green": "#75bd50",
 }
+# Preserve the author's Xitsonga-based cues, including script and stress marks.
 PHONICS = (
     ("па пи пы пэ пе", "pa pyi pы pe pye"),
     ("са си сы сэ се", "sa si sы se sye"),
@@ -38,9 +39,9 @@ PHONICS = (
     ("ма ми мы мэ ме", "ma mi mы me mye"),
 )
 COLOUR_WORDS = (
-    ("red", "кра́сный", "krásni"),
-    ("yellow", "жёлтый", "жólti"),
-    ("green", "зелёный", "zilyóni"),
+    ("red", "кра́сный", "krasni"),
+    ("yellow", "жёлтый", "жolti"),
+    ("green", "зелёный", "zilyoni"),
 )
 KNOWN_WORDS = (
     ("mango", "ма́нго", None),
@@ -49,9 +50,9 @@ KNOWN_WORDS = (
     ("book", "кни́га", None),
 )
 NEW_WORDS = (
-    ("notebook", "тетра́дь", "tsitrát’"),
-    ("gum", "жва́чка", "жvácka"),
-    ("sun", "со́лнце", "sóntse"),
+    ("notebook", "тетра́дь", "tsitratsi"),
+    ("gum", "жва́чка", "жыvácuka"),
+    ("sun", "со́лнце", "sontse"),
     ("head", "голова́", "galavá"),
     ("hair", "во́лосы", "vólasы"),
 )
@@ -64,10 +65,10 @@ EXERCISE = (
     (("notebook", "red"), ("pen", "yellow"), ("head", "green"), ("hair", "red")),
 )
 CHORUS = (
-    ("Жва́чка на за́втрак,", "Жvácka na záftrak,", "Chewing gum for breakfast,"),
-    ("Ко́ла на у́жин.", "Kóla na úжыn.", "Cola for dinner."),
-    ("Я так уста́ла,", "Ya tak ustála,", "I’m so tired."),
-    ("Ты мне не ну́жен.", "Tы mnye nye núжыn.", "I don’t need you."),
+    ("Жва́чка на за́втрак,", "жыvacka na zaftrak", "Chewing gum for breakfast,"),
+    ("Ко́ла на у́жин.", "kola na uжыn", "Cola for dinner."),
+    ("Я так уста́ла,", "ya tak ustala", "I’m so tired."),
+    ("Ты мне не ну́жен.", "tы mnye nye nuжеn", "I don’t need you."),
 )
 GLOSSES = (
     ("жва́чка", "chewing gum"),
@@ -134,7 +135,7 @@ def phonics_and_review(c):
     for index, (russian, cue) in enumerate(PHONICS):
         phonics_row(c, russian, cue, 86 + index * 33)
     write(c, "Say with other consonants", MARGIN, 222, 11)
-    phonics_row(c, "жа жо жу же жи", "жa жo жu же жы", 252)
+    phonics_row(c, "жа жо жу же жи", "жа жo жu же жы", 252)
     write(c, "жи sounds like жы.", MARGIN, 283, 10, colour=BLUE)
 
     heading(c, "Review", 325, 27)
