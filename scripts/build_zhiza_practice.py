@@ -24,12 +24,18 @@ WIDTH = W - 2 * MARGIN
 INK = "#151515"
 BLUE = "#00658a"
 GREEN = "#397020"
+RUST = "#8d4023"
 FAINT = "#d7dadd"
 
 COLOURS = {
     "red": "#ee524e",
     "yellow": "#f6cc43",
     "green": "#75bd50",
+}
+COLOUR_TEXT = {
+    "red": "#c81932",
+    "yellow": "#9f6d00",
+    "green": "#237a21",
 }
 # Preserve the author's Xitsonga-based cues, including script and stress marks.
 PHONICS = (
@@ -117,10 +123,10 @@ FOOD_DIALOGUE = (
     "— Я ем авокадо.",
 )
 VERBS = (
-    ("я ем", "ты ешь", "dya"),
-    ("я знаю", "ты знаешь", "tiva"),
-    ("я пишу", "ты пишешь", "tsala"),
-    ("я иду", "ты идёшь", "famba"),
+    (("я ем", "ya yem"), ("ты ешь", "tы yesw"), "dya"),
+    (("я зна́ю", "ya znayu"), ("ты зна́ешь", "tы znayisw"), "tiva"),
+    (("я пишу́", "ya piswú"), ("ты пи́шешь", "tы piswыsw"), "tsala"),
+    (("я иду́", "ya idú"), ("ты идёшь", "tы idzyósw"), "famba"),
 )
 
 
@@ -168,6 +174,17 @@ def vocabulary_row(c, words, top, size):
             write(c, cue, x, top + size / 2 + 27, 10, colour=BLUE, centered=True)
 
 
+def vocabulary_heading(c, xitsonga, russian, cue, top):
+    x = MARGIN
+    for label, font, colour in (
+        (xitsonga, "Bold", RUST),
+        (russian, "Bold", INK),
+        (cue, "Sans", BLUE),
+    ):
+        write(c, label, x, top, 11, font, colour)
+        x += pdfmetrics.stringWidth(label, font, 11) + 10
+
+
 def phonics_and_review(c):
     heading(c, "Phonics", 57, 27)
     for index, (russian, cue) in enumerate(PHONICS):
@@ -176,15 +193,15 @@ def phonics_and_review(c):
     phonics_row(c, "жа жо жу же жи", "жа жo жu же жы", 252)
 
     heading(c, "Review", 325, 27)
-    write(c, "Colors", MARGIN, 348, 11, "Bold")
+    vocabulary_heading(c, "Mihlovo", "Цвета́", "tsivhitá", 348)
     for index, (colour, russian, cue) in enumerate(COLOUR_WORDS):
         x = MARGIN + index * WIDTH / 3
         c.setFillColor(HexColor(COLOURS[colour]))
         c.circle(x + 7, H - 369, 7, stroke=0, fill=1)
-        write(c, russian, x + 21, 370, 12, "Bold")
-        write(c, cue, x + 21, 385, 10, colour=BLUE)
+        write(c, russian, x + 21, 370, 12, "Bold", COLOUR_TEXT[colour])
+        write(c, cue, x + 21, 385, 10, colour=COLOUR_TEXT[colour])
 
-    write(c, "Objects", MARGIN, 412, 11, "Bold")
+    vocabulary_heading(c, "Swilo", "Предме́ты", "piridimyetы", 412)
     vocabulary_row(c, KNOWN_WORDS, 437, 35)
     write(c, "Но́вые слова́", MARGIN, 496, 11, "Bold")
     vocabulary_row(c, NEW_WORDS, 520, 34)
@@ -224,16 +241,15 @@ def song(c):
 
 
 def where(c):
-    rust = "#8d4023"
     scale = .92
     source_left, source_top = 28.35, 54.18
     heading_top = 56
     body = 10.4 * scale
     highlights = {
-        "жёлтая": "#987200",
-        "жоlti": "#987200",
-        "кра́сная": "#b82435",
-        "krasni": "#b82435",
+        "жёлтая": COLOUR_TEXT["yellow"],
+        "жоlti": COLOUR_TEXT["yellow"],
+        "кра́сная": COLOUR_TEXT["red"],
+        "krasni": COLOUR_TEXT["red"],
     }
     color_words = re.compile("(" + "|".join(re.escape(word) for word in highlights) + ")")
 
@@ -244,7 +260,7 @@ def where(c):
                 x += pdfmetrics.stringWidth(part, "Sans", body)
 
     heading(c, "Где?", heading_top, 22 * scale)
-    write(c, "Kwihi?", MARGIN + (106.59 - source_left) * scale, heading_top, 11.4 * scale, colour=rust)
+    write(c, "Kwihi?", MARGIN + (106.59 - source_left) * scale, heading_top, 11.4 * scale, colour=RUST)
     for russian_x, cue_x, baseline, rows in WHERE_DIALOGUES:
         left = MARGIN + (russian_x - source_left) * scale
         right = MARGIN + (cue_x - source_left) * scale
@@ -260,11 +276,12 @@ def where(c):
         write(c, line, MARGIN, 423 + index * 18, body)
 
     for index, (first, second, xitsonga) in enumerate(VERBS):
-        top = 472 + index * 24
-        rule(c, top - 15, right=MARGIN + 282)
-        write(c, first, MARGIN, top, 11)
-        write(c, second, MARGIN + 104, top, 11)
-        write(c, xitsonga, MARGIN + 222, top, 11, colour=rust)
+        top = 464 + index * 28
+        rule(c, top - 12, right=MARGIN + 282)
+        for x, (russian, cue) in ((MARGIN, first), (MARGIN + 104, second)):
+            write(c, russian, x, top, 11)
+            write(c, cue, x, top + 11, 9, colour=BLUE)
+        write(c, xitsonga, MARGIN + 222, top, 11, colour=RUST)
 
 
 def build():
