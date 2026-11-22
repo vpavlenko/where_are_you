@@ -5,6 +5,7 @@ Install ReportLab, uharfbuzz and svglib before running this script.
 
 from collections import Counter
 from pathlib import Path
+import re
 
 from reportlab.lib.colors import HexColor
 from reportlab.lib.pagesizes import A5
@@ -86,6 +87,41 @@ GLOSSES = (
     ("мне", "eka mina"),
     ("не", "a … -i"),
     ("ну́жен", "wa laveka"),
+)
+
+# Dialogues and column positions from page 10 of the жиза booklet.
+WHERE_DIALOGUES = (
+    (60.93, 166.88, 94.34, (
+        ("— Паш, где Ми́ша?", "— Pasw, gdzye Miswa?"),
+        ("— Там.", "— Tam."),
+        ("— А где Са́ша?", "— A gdzye Saswa?"),
+        ("— Я не зна́ю.", "— Ya nye znayu."),
+    )),
+    (28.35, 179.15, 197.47, (
+        ("— Вита́ль, ты зна́ешь, где\nжёлтая кни́га?", "— Vhitali, tы znayisw, gdzye жоlti kniga?"),
+        ("— Нет.", "— Nyet."),
+        ("— А где кра́сная ру́чка?", "— A gdzye krasni rucka?"),
+        ("— Там.", "— Tam."),
+    )),
+    (32.10, 200.19, 314.99, (
+        ("— Вита́ль, ты зна́ешь ру́сский?", "— Vhitali, tы znayisw ruski?"),
+        ("— Да. Я ру́сский. А ты?", "— Da. Ya ruski. A tы?"),
+        ("— Нет, я не зна́ю.", "— Nyet, ya nye znayu."),
+    )),
+    (84.57, 229.94, 400.22, (
+        ("— Саш, ты зна́ешь тсо́нгу?", "— Sasw, tы znayisw tsongu?"),
+        ("— Нет.", "— Nyet."),
+    )),
+)
+FOOD_DIALOGUE = (
+    "— Я ем манго. А ты что ешь?",
+    "— Я ем авокадо.",
+)
+VERBS = (
+    ("я ем", "ты ешь", "dya"),
+    ("я знаю", "ты знаешь", "tiva"),
+    ("я пишу", "ты пишешь", "tsala"),
+    ("я иду", "ты идёшь", "famba"),
 )
 
 
@@ -191,6 +227,50 @@ def song(c):
         write(c, xitsonga, x + 65, top, 10.5, "Literata")
 
 
+def where(c):
+    rust = "#8d4023"
+    scale = .92
+    source_left, source_top = 28.35, 54.18
+    heading_top = 56
+    body = 10.4 * scale
+    highlights = {
+        "жёлтая": "#987200",
+        "жоlti": "#987200",
+        "кра́сная": "#b82435",
+        "krasni": "#b82435",
+    }
+    color_words = re.compile("(" + "|".join(re.escape(word) for word in highlights) + ")")
+
+    def dialogue_line(value, x, top, colour):
+        for part in color_words.split(value):
+            if part:
+                write(c, part, x, top, body, colour=highlights.get(part, colour))
+                x += pdfmetrics.stringWidth(part, "Sans", body)
+
+    heading(c, "Где?", heading_top, 22 * scale)
+    write(c, "Kwihi?", MARGIN + (106.59 - source_left) * scale, heading_top, 11.4 * scale, colour=rust)
+    for russian_x, cue_x, baseline, rows in WHERE_DIALOGUES:
+        left = MARGIN + (russian_x - source_left) * scale
+        right = MARGIN + (cue_x - source_left) * scale
+        top = heading_top + (baseline - source_top) * scale
+        for russian, cue in rows:
+            lines = russian.splitlines()
+            for index, line in enumerate(lines):
+                dialogue_line(line, left, top + index * 14.4 * scale, INK)
+            dialogue_line(cue, right, top, BLUE)
+            top += (17.9 + (len(lines) - 1) * 14.4) * scale
+
+    for index, line in enumerate(FOOD_DIALOGUE):
+        write(c, line, MARGIN, 423 + index * 18, body)
+
+    for index, (first, second, xitsonga) in enumerate(VERBS):
+        top = 472 + index * 24
+        rule(c, top - 15, right=MARGIN + 282)
+        write(c, first, MARGIN, top, 11)
+        write(c, second, MARGIN + 104, top, 11)
+        write(c, xitsonga, MARGIN + 222, top, 11, colour=rust)
+
+
 def build():
     pairs = [pair for row in EXERCISE for pair in row]
     assert len(pairs) == len(set(pairs)) == 24
@@ -204,13 +284,13 @@ def build():
         pdfmetrics.registerFont(TTFont(name, str(FONT_DIR / filename), shapable=True))
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     c = Canvas(str(OUTPUT), pagesize=A5, pageCompression=1, invariant=1, initialFontName="Sans")
-    c.setTitle("жиза · Phonics, Review, Жвачка")
+    c.setTitle("жиза · Phonics, Review, Жвачка, Где?")
     c.setSubject(
         "Mango, avocado and pen illustrations adapted from Microsoft Fluent UI Emoji.\n"
         + FLUENT_LICENSE.read_text(encoding="utf-8").strip()
     )
     c.setViewerPreference("PrintScaling", "None")
-    for page in (phonics_and_review, colour_exercise, song):
+    for page in (phonics_and_review, colour_exercise, song, where):
         page(c)
         c.showPage()
     c.save()
